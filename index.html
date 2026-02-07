@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Cinelog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="window">
+        <header class="titlebar">
+            <div class="traffic">
+                <span class="red"></span>
+                <span class="yellow"></span>
+                <span class="green"></span>
+            </div>
+            <div class="title">Cinelog</div>
+        </header>
+
+        <main>
+            <!-- COVER -->
+            <section id="cover">
+                <h1>Cinelog</h1>
+                <p>A Personal Movie Log</p>
+                <button id="openLog">Open Log</button>
+                <button id="openIndex">List of Watched Films</button>
+            </section>
+
+            <!--INDEX-->
+            <div id="index" hidden>
+                <h2>List of Watched Films</h2>
+                <div id="index-table-wrap">
+                    <table>
+                    <thead>
+                        <tr>
+                            <th>Movie</th>
+                            <th>Year</th>
+                            <th>Date Watched</th>
+                            <th>Directed By</th>
+                        </tr>
+                    </thead>
+                    <tbody id="indexBody">
+                        <!-- Entries will be populated here -->
+                    </tbody>
+                </table>
+                </div>
+                <button id="backToCover">Back to Cover</button>
+            </div>
+
+            <!-- LOG -->
+            <section id="log" hidden>
+                <div class="book">
+                    <div class="binding"></div>
+
+                    <div class="page">
+                        <img class="wax-seal" src="assets/seal.png" alt="Wax seal">
+
+                        <div class="entry">
+
+                            <div class="row top">
+                                <div class="field wide">
+                                    <label>Movie</label>
+                                    <input type="text">
+                                </div>
+
+                                <div class="field small">
+                                    <label>Year</label>
+                                    <input type="text">
+                                </div>
+
+                                <div class="field medium">
+                                    <label>Date Watched</label>
+                                    <input type="text">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="field full">
+                                    <label>Directed By</label>
+                                    <input type="text">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="field full">
+                                    <label>Starring</label>
+                                    <input type="text">
+                                </div>
+                            </div>
+
+                            <div class="row checks">
+                                <label><input type="checkbox" id="theater"> In Theater</label>
+                                <label><input type="checkbox" id="home"> At Home</label>
+                                <label><input type="checkbox" id="first"> First Watch</label>
+                                <label><input type="checkbox" id="rewatch"> Rewatch</label>
+                                <label><input type="checkbox" id="alone"> Alone</label>
+                                <label>With <input type="text" id="withPerson" class="inline"></label>
+                                <label>Where <input type="text" id="wherePerson" class="inline"></label>
+                            </div>
+
+                            <div class="row notes">
+                                <label>Notes</label>
+                                <textarea></textarea>
+                            </div>
+
+                        </div>
+                        <button id="prevPage">←</button>
+                        <div id="pageNumber" class="page-number">Page 1 of 1</div>
+                        <button id="finishEntry">Finish Entry</button>
+                        <button id="flipPage">→</button>
+                        
+                    </div>
+
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,454 @@
+/* RESET */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background: url("assets/orange.jpg");
+    background-size: cover;
+    background-position: center;
+    font-family: "Libre Baskerville", serif;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* WINDOW */
+.window {
+    width: 900px;
+    height: 600px;
+    border-radius: 14px;
+    border: 0.5px solid #ffe8c1;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+}
+
+/*TITLEBAR*/
+.titlebar {
+    height: 40px;
+    background: #f5f1ea;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.traffic {
+    display: flex;
+    gap: 8px;
+    padding: 0 14px;
+}
+
+.traffic span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.red {
+    background: #ff5f56;
+}
+
+.yellow {
+    background: #ffbd2e;
+}
+
+.green {
+    background: #27c93f;
+}
+
+.title {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+}
+
+/* MAIN */
+main {
+    height: calc(100% - 40px);
+    flex-direction: column;
+    display: flex;
+}
+
+/* COVER */
+#cover {
+    height: 100%;
+    color: #2b2b2b;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#cover h1 {
+    font-size: 48px;
+    margin: 0;
+    color: #ffe8c1;
+}
+
+#cover p {
+    margin-top: 8px;
+    opacity: 0.8;
+    color: #ffe8c1;
+}
+
+#cover button {
+    margin-top: 24px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    background: #ffe8c1;
+    font-family: "Libre Baskerville", serif;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+#cover button:hover {
+  opacity: 0.9;
+}
+
+/* LOG */
+#log {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#log {
+    display: none;
+}
+
+
+/* BOOK */
+.book {
+    display: flex;
+    width:
+        /*720px*/
+        900px;
+    height:
+        /*480px*/
+        100%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* BINDING */
+.binding {
+    width: 28px;
+    background:
+        linear-gradient(to right,
+            rgba(0, 0, 0, 0.25),
+            rgba(0, 0, 0, 0.1),
+            rgba(255, 255, 255, 0.25)),
+        url("assets/paper.jpg");
+    background-size: cover;
+}
+
+/* PAGE */
+.page {
+    position: relative;          /* ← CRITICAL */
+    flex: 1;
+    height: 100%;                /* ← CRITICAL */
+    background: url("assets/paper.jpg");
+    background-size: cover;
+    padding: 30px;
+    box-shadow: inset 8px 0 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;            /* keep this */
+}
+
+/* WAX SEAL */
+.wax-seal {
+    position: absolute;
+    right: 30px;
+    bottom: 52px;
+    width: 110px;
+    height: 110px;
+    opacity: 0;
+    filter: drop-shadow(0 6px 6px rgba(0, 0, 0, 0.25));
+    pointer-events: none;
+    transform: rotate(-6deg) scale(0.6);
+    transition: opacity 0.3s ease, transform 0.35s ease;
+}
+
+.page.locked .wax-seal {
+    opacity: 0.95;
+    transform: rotate(-6deg) scale(1);
+}
+
+.wax-seal.seal-pop {
+    animation: seal-pop 0.45s ease-out;
+}
+
+@keyframes seal-pop {
+    0% { transform: rotate(-6deg) scale(0.6); }
+    60% { transform: rotate(-6deg) scale(1.08); }
+    100% { transform: rotate(-6deg) scale(1); }
+}
+
+
+
+
+/* ENTRY */
+.entry {
+    font-size: 14px;
+    color: #2b2b2b;
+}
+
+/* ROWS */
+.row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.row.top {
+    align-items: flex-end;
+}
+
+/* FIELDS */
+.field {
+    display: flex;
+    flex-direction: column;
+}
+
+.field.full {
+    flex: 1;
+}
+
+.field.wide {
+    flex: 2;
+}
+
+.field.medium {
+    flex: 1.2;
+}
+
+.field.small {
+    width: 80px;
+}
+
+/* LABELS */
+.entry label {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.55;
+    margin-bottom: 4px;
+}
+
+/* TEXT INPUTS */
+.entry input[type="text"] {
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    background: transparent;
+    font-family: "Caveat", cursive;
+    font-size: 17px;
+    padding: 2px 0;
+    outline: none;
+}
+
+/* INLINE INPUT */
+.entry input.inline {
+    width: 120px;
+    margin-left: 6px;
+}
+
+/* CHECKS */
+.row.checks {
+    flex-wrap: wrap;
+    gap: 14px;
+    font-size: 12px;
+}
+
+.row.checks label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+/* NOTES */
+.row.notes {
+    flex-direction: column;
+}
+
+.row.notes textarea {
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    background: transparent;
+    font-family: "Caveat", cursive;
+    font-size: 18px;
+    line-height: 1.6;
+    resize: none;
+    outline: none;
+    height: 280px;
+    color: #2b2b2b;
+}
+
+#flipPage {
+    position: absolute;
+    bottom: 20px;
+    right: 24px;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0.4;
+}
+
+#finishEntry {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: none;
+  background: transparent;
+  font-family: "Libre Baskerville", serif;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+#finishEntry:hover {
+  opacity: 0.9;
+}
+
+
+#prevPage {
+    position: absolute;
+    bottom: 20px;
+    left: 24px;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0.4;
+}
+
+.page-number {
+  position: absolute;
+  bottom: 52px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* INDEX VIEW */
+
+#index {
+  flex: 1;                     /* ← CRITICAL */
+  padding: 40px 60px;
+  background: url("assets/paper.jpg");
+  background-size: cover;
+  color: #2b2b2b;
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+
+#index h2 {
+  margin: 0 0 24px 0;
+  font-size: 18px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+/* TABLE */
+
+#index table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+#index thead th {
+  text-align: left;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(0,0,0,0.25);
+}
+
+#index tbody tr {
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+#index tbody tr:hover {
+  background: rgba(0,0,0,0.03);
+}
+
+#index td {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+}
+
+/* BACK BUTTON */
+
+#backToCover {
+  margin-top: 30px;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+#backToCover:hover {
+  opacity: 1;
+}
+
+/* LOCKED PAGE STATE */
+
+.page.locked {
+  opacity: 0.92;
+}
+
+.page.locked input,
+.page.locked textarea {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.page.locked textarea {
+  font-style: italic;
+}
+
+/* optional: subtle seal cue */
+.page.locked::after {
+  content: "SEALED";
+  position: absolute;
+  top: 24px;
+  right: 30px;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  opacity: 0.25;
+}
+
+/* INDEX SCROLL FIX */
+
+#index-table-wrap {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
